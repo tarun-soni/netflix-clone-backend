@@ -20,9 +20,9 @@ const __dirname = path.resolve()
 
 if (process.env.NODE_ENV === 'production') {
   //set frontend/build as static folder
-  app.use(express.static(path.join(__dirname, '/frontend/build')))
+  app.use(express.static(path.join(__dirname, '/dist')))
   app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
   )
 } else {
   app.get('/', (req, res) => {
