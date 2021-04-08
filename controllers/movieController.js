@@ -58,7 +58,7 @@ const getUserMovies = asyncHandler(async (req, res) => {
 // @access      private
 const deleteMovie = asyncHandler(async (req, res) => {
   try {
-    const movie = await Movie.findOne({ _id: req.params.movie_id })
+    const movie = await Movie.findOne({ movieId: req.params.movie_id })
     if (movie) {
       await movie.remove()
       res.json({ message: 'movie removed' })
