@@ -13,7 +13,8 @@ const createMovie = asyncHandler(async (req, res) => {
     overview,
     genres,
     poster_path,
-    backdrop_path
+    backdrop_path,
+    vote_average
   } = req.body
   const movie = new Movie({
     user: user._id,
@@ -23,7 +24,8 @@ const createMovie = asyncHandler(async (req, res) => {
     overview,
     genres,
     poster_path,
-    backdrop_path
+    backdrop_path,
+    vote_average
   })
 
   const createdMovie = await movie.save()
