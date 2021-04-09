@@ -16,10 +16,11 @@ const protect = asyncHandler(async (req, res, next) => {
 
       next()
     } catch (error) {
-      console.error('error in auth middleware :>> ', error)
-
       res.status(401)
-      throw new Error('Not authorized, token failed')
+      console.error('error in auth middleware :>> ', error)
+      if (error.name === 'TokenExpiredError')
+        throw new Error('Token Expired, Please login again')
+      else throw new Error('Not authorized, token failed')
     }
   }
 

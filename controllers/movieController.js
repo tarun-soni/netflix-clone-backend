@@ -52,6 +52,8 @@ const getUserMovies = asyncHandler(async (req, res) => {
     }
     console.error('error getUserMovies route: >>>>>', err)
     res.status(500).send('Server Error')
+
+    console.log('err :>> ', err)
   }
 })
 
